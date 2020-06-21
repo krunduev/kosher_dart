@@ -331,7 +331,7 @@ class ZmanimCalendar extends AstronomicalCalendar {
    *         returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    */
   DateTime getMinchaGedola([DateTime startOfDay, DateTime endOfDay]) {
-    if (startOfDay == null || endOfDay == null) {
+    if (startOfDay != null && endOfDay != null) {
       double shaahZmanis = getTemporalHour(startOfDay, endOfDay);
       return getTimeOffset(startOfDay, shaahZmanis * 6.5);
     }

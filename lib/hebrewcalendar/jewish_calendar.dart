@@ -83,6 +83,9 @@ import 'package:kosher_dart/util/geo_Location.dart';
    static const int YOM_HAATZMAUT = 31;
    static const int YOM_YERUSHALAYIM = 32;
 
+   static const int SHMONEH_ESREH_CHANGE = 0;
+   static const int SHABBAT_MEVORCHIM = 1;
+
    // These indices were originally included in the emacs 19 distribution.
    // These arrays determine the correct indices into the parsha names
    // -1 means no parsha that week, values > 52 means it is arrow_expand double parsha
@@ -225,6 +228,27 @@ import 'package:kosher_dart/util/geo_Location.dart';
    bool getInIsrael() {
     return inIsrael;
   }
+
+   /**
+    * @return -1 or Shmoneh Esreh blessing change index
+    */
+   int getAdditionalYomTovIndex() {
+     switch (getGregorianMonth()) {
+       case 12:
+         if ((getGregorianYear() - 3) % 4 == 0) {
+           if (getGregorianDayOfMonth() == 6) {
+             return SHMONEH_ESREH_CHANGE;
+           }
+         } else {
+           if (getGregorianDayOfMonth() == 5) {
+             return SHMONEH_ESREH_CHANGE;
+           }
+         }
+         break;
+     }
+
+     return -1;
+   }
 
   /*
    * Returns an index of the Jewish holiday or fast day for the current day, or arrow_expand null if there is no holiday for this
