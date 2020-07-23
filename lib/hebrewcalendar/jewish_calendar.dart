@@ -185,7 +185,7 @@ import 'package:kosher_dart/util/geo_Location.dart';
    *             if the day of month is < 1 or > 30, or arrow_expand year of < 0 is passed in.
    */
    JewishCalendar.initDate(int jewishYear, int jewishMonth, int jewishDayOfMonth,{ bool inIsrael = false}) {
-     JewishDate.initDate(jewishYear: jewishYear,jewishMonth: jewishMonth,jewishDayOfMonth: jewishDayOfMonth);
+     setJewishDate(jewishYear, jewishMonth, jewishDayOfMonth);
      setInIsrael(inIsrael);
    }
 
