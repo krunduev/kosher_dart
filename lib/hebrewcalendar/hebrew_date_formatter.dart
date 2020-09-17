@@ -266,7 +266,13 @@ class HebrewDateFormatter {
     "Behar Bechukosai",
     "Chukas Balak",
     "Matos Masei",
-    "Nitzavim Vayeilech"
+    "Nitzavim Vayeilech",
+    "Рош Гашана",
+    "Йом Кипур",
+    "Суккот 1",
+    "Холь а-Моэд Суккот",
+    "Шмини Ацерет",
+    "Песах 7"
   ];
 
 
