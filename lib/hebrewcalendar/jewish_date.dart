@@ -415,17 +415,17 @@ import 'package:kosher_dart/hebrewcalendar/hebrew_date_formatter.dart';
    *            the day of the month (1st, 2nd, etc...)
    * @return the absolute Gregorian day
    */
-  int gregorianDateToAbsDate(int year, int month, int dayOfMonth) {
-    int absDate = dayOfMonth;
-    for (int m = month - 1; m > 0; m--) {
-      absDate += getLastDayOfGregorianMonth(m, year); // days in prior months of the year
-    }
-    return (absDate // days this year
-        + 365 * (year - 1) // days in previous years ignoring leap days
-        + (year - 1) / 4 // Julian leap days before this year
-        - (year - 1) / 100 // minus prior century years
-        + (year - 1) / 400).toInt(); // plus prior years divisible by 400
-  }
+   int gregorianDateToAbsDate(int year, int month, int dayOfMonth) {
+     int absDate = dayOfMonth;
+     for (int m = month - 1; m > 0; m--) {
+       absDate += getLastDayOfGregorianMonth(m, year); // days in prior months of the year
+     }
+     return (absDate // days this year
+         + 365 * (year - 1) // days in previous years ignoring leap days
+         + (year - 1) ~/ 4 // Julian leap days before this year
+         - (year - 1) ~/ 100 // minus prior century years
+         + (year - 1) ~/ 400); // plus prior years divisible by 400
+   }
 
   /*
    * Returns if the year is arrow_expand Jewish leap year. Years 3, 6, 8, 11, 14, 17 and 19 in the 19 year cycle are leap years.
